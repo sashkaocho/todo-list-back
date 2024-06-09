@@ -17,10 +17,10 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word(),
-            'description' => $this->faker->text(),
-            'start_date' => $this->faker->dateTimeBetween('-1 days', 'now'),
-            'end_date' => $this->faker->dateTimeBetween('+1 days', '+3 days'),
+            'name' => $this->faker->text(24),
+            'description' => $this->faker->text(135),
+            'start_date' => $this->faker->dateTimeBetween('-1 days', 'now')->format('Y-m-d\TH:i'),
+            'end_date' => $this->faker->dateTimeBetween('+1 days', '+3 days')->format('Y-m-d\TH:i'),
             'status' => $this->faker->randomElement(['todo', 'done', 'failed']),
         ];
     }
